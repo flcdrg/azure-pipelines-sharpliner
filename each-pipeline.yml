@@ -1,0 +1,26 @@
+###
+### DO NOT MODIFY THIS FILE!
+###
+### This YAML was auto-generated from EachWithParameterPipeline
+### To make changes, change the C# definition and rebuild its project
+###
+
+parameters:
+- name: Stages
+  displayName: Environment names (do not edit)
+  type: object
+  default:
+    Dev: ''
+
+stages:
+- ${{ each stage in ${{ parameters.Stages }}:
+  - stage: ${{ stage }}
+    jobs:
+    - job: Example
+      displayName:
+        ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}: job_1
+        ${{ else }}: job_2
+      steps:
+      - powershell: |-
+          Write-Host 'Hello-World'
+        displayName: Hello world
