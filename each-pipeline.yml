@@ -13,7 +13,7 @@ parameters:
     Dev: ''
 
 stages:
-- ${{ each stage in ${{ parameters.Stages }}:
+- ${{ each stage in parameters.Stages }}:
   - stage: ${{ stage }}
     jobs:
     - job: Example

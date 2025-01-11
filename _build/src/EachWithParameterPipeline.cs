@@ -24,7 +24,7 @@ public class EachWithParameterPipeline : PipelineDefinition
 
 
         Stages = [
-            Each("stage", Stages)
+            Each("stage", "parameters.Stages")
                 .Stage(new Stage("${{ stage }}")
                 {
 
